@@ -1,0 +1,27 @@
+# IDE configuration normalization
+# @see http://editorconfig.org/
+
+root = true
+
+[webpack*.js]
+indent_size = 2
+
+[*]
+end_of_line = LF
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[tsconfig.json]
+indent_size = 2
+
+[webpack.*.js]
+indent_size = 2
+
+[package.json]
+indent_size = 2
+
+[*.{yml,yaml}]
+indent_size = 2
