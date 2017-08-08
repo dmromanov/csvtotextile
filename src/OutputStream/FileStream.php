@@ -2,6 +2,8 @@
 
 namespace App\OutputStream;
 
+use SplFileObject;
+
 /**
  * Class FileStream
  * @package App\OutputStream
@@ -9,18 +11,18 @@ namespace App\OutputStream;
 class FileStream implements OutputStreamInterface
 {
     /**
-     * @var \SplFileObject
+     * @var SplFileObject
      */
     protected $file;
 
     /**
      * FileStream constructor.
      *
-     * @param string $filename
+     * @param SplFileObject $file
      */
-    public function __construct(string $filename)
+    public function __construct(SplFileObject $file)
     {
-        $this->file = new \SplFileObject($filename, 'w');
+        $this->file = $file;
     }
 
     /**

@@ -6,7 +6,6 @@ use App\Converter\Converter;
 use App\FileReader\CsvReader;
 use App\OutputStream\OutputStreamFactory;
 use Exception;
-use SplFileObject;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,7 +24,7 @@ class CsvToTextile extends Command
     /**
      * Configures the current command.
      */
-    protected function configure()
+    protected function configure(): self
     {
         $this
             // the name of the command (the part after "bin/console")
@@ -48,10 +47,10 @@ class CsvToTextile extends Command
     /**
      * Executes the current command.
      *
-     * @param InputInterface $input
-     * @param OutputInterface $output
+     * @param InputInterface $input Console Input
+     * @param OutputInterface $output Console Output
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $errOutput = $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output;
 
@@ -71,9 +70,8 @@ class CsvToTextile extends Command
         $headerCols = $input->getArgument('headerCols');
 
         try {
-            $file = new CsvReader($input->getArgument('input'));
-            $file->setFlags(SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE);
-            $file->setCsvControl(
+            $file = new CsvReader(
+                $input->getArgument('input'),
                 $input->getOption('csvDelimiter'),
                 $input->getOption('csvEnclosure'),
                 $input->getOption('csvEscape')
@@ -83,10 +81,10 @@ class CsvToTextile extends Command
                 $outputStream->writeln($formatter->formatLine($line, $lineNo < $headerRows, $headerCols));
             }
 
-            } catch (Exception $e) {
-                $errOutput->writeln($e->getMessage());
-                exit(1);
-            }
+        } catch (Exception $e) {
+            $errOutput->writeln($e->getMessage());
+            exit(1);
+        }
 
         exit(0);
     }
