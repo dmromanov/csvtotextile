@@ -13,6 +13,9 @@
             "App\\": "src"
         }
     },
+    "autoload-dev": {
+        "App\\Test\\TestCase\\": "tests/TestCase"
+    },
     "authors": [
         {
             "name": "Dmitrii Romanov",
