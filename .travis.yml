@@ -1,0 +1,27 @@
+language: php
+
+dist: trusty
+
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+
+install:
+  - composer install --prefer-dist --no-interaction --optimize-autoloader --no-suggest --no-progress
+
+matrix:
+  fast_finish: true
+
+  allow_failures:
+    - php: 7.2
+
+  include:
+    - php: 7.0
+
+    - php: 7.0
+
+    - php: 7.1
+
+notifications:
+  email: false
