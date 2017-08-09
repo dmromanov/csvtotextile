@@ -50,7 +50,7 @@ class CsvToTextile extends Command
      * @param InputInterface $input Console Input
      * @param OutputInterface $output Console Output
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $errOutput = $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output;
 

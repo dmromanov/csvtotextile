@@ -30,7 +30,7 @@ class FileStream implements OutputStreamInterface
      *
      * @param string $message The message as an array of lines of a single string
      */
-    public function writeln(string $message): void
+    public function writeln(string $message)
     {
         $this->file->fwrite($message . PHP_EOL);
     }
