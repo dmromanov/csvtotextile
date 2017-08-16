@@ -18,13 +18,13 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @package App\Command
  */
-class CsvToTextile extends Command
+class CsvToTextileCommand extends Command
 {
 
     /**
      * Configures the current command.
      */
-    protected function configure(): self
+    protected function configure()
     {
         $this
             // the name of the command (the part after "bin/console")
@@ -83,9 +83,9 @@ class CsvToTextile extends Command
 
         } catch (Exception $e) {
             $errOutput->writeln($e->getMessage());
-            exit(1);
+            return 1;
         }
 
-        exit(0);
+        return 0;
     }
 }
