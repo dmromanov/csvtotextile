@@ -54,9 +54,7 @@
     </target>
 
     <target name="phpunit" description="Run unit-testing suite" depends="prepare">
-        <exec executable="vendor/bin/phpunit" checkreturn="true" passthru="true">
-            <arg value="build/build"/>
-        </exec>
+        <exec executable="vendor/bin/phpunit" checkreturn="true" passthru="true" />
         <echo>Ok.</echo>
     </target>
 
