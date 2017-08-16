@@ -64,6 +64,11 @@ class CsvToTextileCommand extends Command
             $input->getOption('output')
         );
 
+        if (!file_exists($input->getArgument('input'))) {
+            $errOutput->writeln('<error>No such file.</error>');
+            return 1;
+        }
+
         $formatter = new Converter();
 
         $headerRows = $input->getArgument('headerRows');
@@ -82,7 +87,7 @@ class CsvToTextileCommand extends Command
             }
 
         } catch (Exception $e) {
-            $errOutput->writeln($e->getMessage());
+            $errOutput->writeln(sprintf('<error>%s</error>', $e->getMessage()));
             return 1;
         }
 
