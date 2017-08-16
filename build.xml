@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="csvtotextile" description="dmromanov/csvtotextile" default="build" basedir="." phingVersion="2.16.0">
+
+    <property name="basedir" value="${project.basedir}"/>
+
+    <autoloader autoloaderpath="vendor/autoload.php"/>
+
+    <exec command="git describe --tags --always" outputProperty="version" checkreturn="true"></exec>
+    <echo>Building a ${version}</echo>
+
+    <!-- meta tasks -->
+    <target name="build" depends="clean,verify,analyze,build-phar" description="Build project"/>
+    <target name="verify" description="Run all lint tasks" depends="clean,phpunit"/>
+    <target name="analyze" description="Run all statistics tasks" depends="clean"/>
+
+    <!-- tasks -->
+    <target name="clean" description="Clean up and create artifact directories">
+        <delete dir="build"></delete>
+    </target>
+
+    <target name="prepare" depends="clean">
+        <copy todir="build/build">
+            <fileset dir="./">
+                <include name="src/**" />
+                <include name="csvtotextile.php" />
+                <include name="composer.json" />
+                <include name="composer.lock" />
+                <include name="LICENSE" />
+            </fileset>
+        </copy>
+
+        <exec executable="composer" checkreturn="true">
+            <arg value="--no-interaction"/>
+            <arg value="--no-dev"/>
+            <arg value="--prefer-dist"/>
+            <arg value="--optimize-autoloader"/>
+            <arg value="--working-dir=${basedir}/build/build"/>
+            <arg value="install"/>
+        </exec>
+
+        <reflexive>
+
+            <fileset dir="build/build">
+                <include pattern="csvtotextile.php" />
+            </fileset>
+
+            <filterchain>
+                <replaceregexp>
+                    <regexp pattern="1.0.0" replace="${version}"/>
+                </replaceregexp>
+            </filterchain>
+        </reflexive>
+    </target>
+
+    <target name="phpunit" description="Run unit-testing suite" depends="prepare">
+        <exec executable="vendor/bin/phpunit" checkreturn="true" passthru="true">
+            <arg value="build/build"/>
+        </exec>
+        <echo>Ok.</echo>
+    </target>
+
+    <target name="build-phar" depends="prepare">
+        <property name="dstfile" value="./build/${phing.project.name}.phar"/>
+
+        <pharpackage
+            destfile="${dstfile}"
+            basedir="./build/build"
+            clistub="./build/build/csvtotextile.php"
+            signature="sha512"
+        >
+            <fileset dir="./build/build/">
+                <include name="src/**" />
+                <include name="vendor/**" />
+                <include name="csvtotextile.php" />
+                <include name="LICENSE" />
+            </fileset>
+            <metadata>
+                <element name="version" value="${version}" />
+                <element name="authors">
+                    <element name="Dmitrii Romanov">
+                        <element name="e-mail" value="none@example.com" />
+                    </element>
+                </element>
+            </metadata>
+        </pharpackage>
+        <echo>Done.</echo>
+
+    </target>
+
+</project>
