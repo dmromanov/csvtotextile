@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 use CsvToTextile\Command\CsvToTextileCommand;
 use Symfony\Component\Console\Application;

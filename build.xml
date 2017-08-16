@@ -24,7 +24,7 @@
         <copy todir="build/build">
             <fileset dir="./">
                 <include name="src/**" />
-                <include name="csvtotextile.php" />
+                <include name="bin/csvtotextile.php" />
                 <include name="composer.json" />
                 <include name="composer.lock" />
                 <include name="LICENSE" />
@@ -72,13 +72,13 @@
         <pharpackage
             destfile="${dstfile}"
             basedir="./build/build"
-            clistub="./build/build/csvtotextile.php"
+            clistub="./build/build/bin/csvtotextile.php"
             signature="sha512"
         >
             <fileset dir="./build/build/">
                 <include name="src/**" />
                 <include name="vendor/**" />
-                <include name="csvtotextile.php" />
+                <include name="bin/csvtotextile.php" />
                 <include name="LICENSE" />
             </fileset>
             <metadata>

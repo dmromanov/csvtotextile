@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Shell wrapper for CsvToTextile
+ */
+
+// turn off html errors
+ini_set('html_errors', 'off');
+
+require_once __DIR__ . '/csvtotextile.php';
