@@ -1,6 +1,8 @@
 {
     "name": "dmromanov/csvtotextile",
+    "description": "A tool for converting CSV-files into a Textile-formatted text tables.",
     "type": "project",
+    "license": "GPL-3.0",
     "require": {
         "php": ">= 7.0.6",
         "symfony/console": "^3.3"
