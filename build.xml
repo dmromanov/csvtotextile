@@ -6,7 +6,8 @@
 
     <autoloader autoloaderpath="vendor/autoload.php"/>
 
-    <exec command="git describe --tags --always" outputProperty="version" checkreturn="true"></exec>
+    <exec command="git describe --tags --always" outputProperty="version" checkreturn="true"/>
+    <property name="version" value="v${version}" override="true"/>
     <echo>Building a ${version}</echo>
 
     <!-- meta tasks -->
