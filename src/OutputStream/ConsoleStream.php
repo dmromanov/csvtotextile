@@ -1,13 +1,13 @@
 <?php
 
-namespace App\OutputStream;
+namespace CsvToTextile\OutputStream;
 
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ConsoleStream
  *
- * @package App\OutputStream
+ * @package CsvToTextileOutputStream
  */
 class ConsoleStream implements OutputStreamInterface
 {

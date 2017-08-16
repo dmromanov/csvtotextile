@@ -1,12 +1,12 @@
 <?php
 
-namespace App\OutputStream;
+namespace CsvToTextile\OutputStream;
 
 use SplFileObject;
 
 /**
  * Class FileStream
- * @package App\OutputStream
+ * @package CsvToTextileOutputStream
  */
 class FileStream implements OutputStreamInterface
 {

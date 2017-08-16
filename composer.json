@@ -15,14 +15,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src"
+            "CsvToTextile\\": "src"
         }
     },
     "suggest": {
         "ext-phar": "For creating a PHAR-archive"
     },
     "autoload-dev": {
-        "App\\Test\\TestCase\\": "tests/TestCase"
+        "CsvToTextile\\Test\\TestCase\\": "tests/TestCase"
     },
     "authors": [
         {

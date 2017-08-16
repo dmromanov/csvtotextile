@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\FileReader;
+namespace CsvToTextile\Test\TestCase\FileReader;
 
-use App\FileReader\CsvReader;
+use CsvToTextile\FileReader\CsvReader;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 

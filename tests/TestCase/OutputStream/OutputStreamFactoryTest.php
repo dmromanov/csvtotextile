@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Test\TestCase\OutputStream;
+namespace CsvToTextile\Test\TestCase\OutputStream;
 
-use App\OutputStream\OutputStreamFactory;
-use App\OutputStream\OutputStreamInterface;
+use CsvToTextile\OutputStream\OutputStreamFactory;
+use CsvToTextile\OutputStream\OutputStreamInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 /**
  * Class OutputStreamFactoryTest
- * @package App\Test\TestCase\OutputStream
+ * @package CsvToTextileTest\TestCase\OutputStream
  */
 class OutputStreamFactoryTest extends TestCase
 {

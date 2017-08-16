@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\OutputStream;
+namespace CsvToTextile\Test\TestCase\OutputStream;
 
-use App\OutputStream\FileStream;
+use CsvToTextile\OutputStream\FileStream;
 use PHPUnit\Framework\TestCase;
 use SplFileObject;
 

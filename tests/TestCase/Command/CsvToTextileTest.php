@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\Command;
+namespace CsvToTextile\Test\TestCase\Command;
 
-use App\Command\CsvToTextileCommand;
+use CsvToTextile\Command\CsvToTextileCommand;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Exception\RuntimeException;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 /**
  * Class CsvToTextileTest
  *
- * @package App\Test\TestCase\Command
+ * @package CsvToTextileTest\TestCase\Command
  */
 class CsvToTextileTest extends KernelTestCase
 {

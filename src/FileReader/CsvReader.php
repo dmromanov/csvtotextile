@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FileReader;
+namespace CsvToTextile\FileReader;
 
 use SplFileObject;
 

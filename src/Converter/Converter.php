@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Converter;
+namespace CsvToTextile\Converter;
 
 /**
  * Converter
  *
  * Class Converter
- * @package App\Converter
+ * @package CsvToTextileConverter
  */
 class Converter
 {

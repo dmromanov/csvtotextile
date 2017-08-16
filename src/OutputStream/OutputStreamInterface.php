@@ -1,11 +1,11 @@
 <?php
 
-namespace App\OutputStream;
+namespace CsvToTextile\OutputStream;
 
 /**
  * Interface OutputStreamInterface
  *
- * @package App\OutputStream
+ * @package CsvToTextileOutputStream
  */
 interface OutputStreamInterface
 {

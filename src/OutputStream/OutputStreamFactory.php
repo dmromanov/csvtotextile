@@ -1,13 +1,13 @@
 <?php
 
-namespace App\OutputStream;
+namespace CsvToTextile\OutputStream;
 
 use SplFileObject;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class OutputStreamFactory
- * @package App\OutputStream
+ * @package CsvToTextileOutputStream
  */
 class OutputStreamFactory {
     const STDOUT = 'stdout';

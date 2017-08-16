@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Command;
+namespace CsvToTextile\Command;
 
-use App\Converter\Converter;
-use App\FileReader\CsvReader;
-use App\OutputStream\OutputStreamFactory;
+use CsvToTextile\Converter\Converter;
+use CsvToTextile\FileReader\CsvReader;
+use CsvToTextile\OutputStream\OutputStreamFactory;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,7 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * CsvToTextile Command
  *
- * @package App\Command
+ * @package CsvToTextileCommand
  */
 class CsvToTextileCommand extends Command
 {

@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 
-use App\Command\CsvToTextileCommand;
+use CsvToTextile\Command\CsvToTextileCommand;
 use Symfony\Component\Console\Application;
 
 $command = new CsvToTextileCommand();

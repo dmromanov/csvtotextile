@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Test\TestCase\Converter;
+namespace CsvToTextile\Test\TestCase\Converter;
 
-use App\Converter\Converter;
+use CsvToTextile\Converter\Converter;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class ConverterTest
- * @package App\Test\TestCase\Converter
+ * @package CsvToTextileTest\TestCase\Converter
  *
  * @property Converter $Converter
  */

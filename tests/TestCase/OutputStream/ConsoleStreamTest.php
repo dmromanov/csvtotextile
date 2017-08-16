@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Test\TestCase\OutputStream;
+namespace CsvToTextile\Test\TestCase\OutputStream;
 
-use App\OutputStream\ConsoleStream;
+use CsvToTextile\OutputStream\ConsoleStream;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Output\BufferedOutput;
 
