@@ -11,7 +11,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 /**
  * Class CsvToTextileTest
  *
- * @package CsvToTextileTest\TestCase\Command
+ * @package CsvToTextile\Test\TestCase\Command
  */
 class CsvToTextileTest extends KernelTestCase
 {

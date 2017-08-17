@@ -16,7 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * CsvToTextile Command
  *
- * @package CsvToTextileCommand
+ * @package CsvToTextile\Command
  */
 class CsvToTextileCommand extends Command
 {
@@ -50,6 +50,8 @@ class CsvToTextileCommand extends Command
      *
      * @param InputInterface $input Console Input
      * @param OutputInterface $output Console Output
+     *
+     * @return int Exit code
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
