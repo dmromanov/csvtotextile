@@ -67,7 +67,7 @@ class CsvToTextileCommand extends Command
 
         if (!file_exists($input->getArgument('input'))) {
             $errOutput->writeln('<error>No such file.</error>');
-            return 1;
+            return 4;
         }
 
         $formatter = new Converter();
