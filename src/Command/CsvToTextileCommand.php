@@ -27,17 +27,18 @@ class CsvToTextileCommand extends Command
     protected function configure()
     {
         $this
-            // the name of the command (the part after "bin/console")
             ->setName('csvtotextile')
-            // the short description shown while running "php bin/console list"
+
             ->setDescription('Converts a CSV file to a Textile-formatted text table.')
+
             ->addUsage('[options] --output <file> <input> [<headerRows>], [<headerCols]')
-            // the full command description shown when running the command with
-            // the "--help" option
+
             ->setHelp('This command allows you to convert a CSV-file to a Textile-formatted text table.')
+
             ->addArgument('input', InputArgument::REQUIRED, 'Input CSV file.')
             ->addArgument('headerRows', InputArgument::OPTIONAL, 'Number of header rows.', 0)
             ->addArgument('headerCols', InputArgument::OPTIONAL, 'Amount of header columns.', 0)
+
             ->addOption('output', 'o', InputOption::VALUE_OPTIONAL, 'Output to a file, ', false)
             ->addOption('csvDelimiter', 'd', InputOption::VALUE_OPTIONAL, 'Values delimiter.', ',')
             ->addOption('csvEnclosure', 'c', InputOption::VALUE_OPTIONAL, 'Values delimiter.', '"')
