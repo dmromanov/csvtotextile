@@ -22,7 +22,7 @@ class ConverterTest extends TestCase
     public function testFormatLineBlank()
     {
         $expected = '';
-        $result = $this->Converter->formatLine([], false, 0);
+        $result = $this->Converter->formatLine([], false, false, 0);
         $this->assertSame($expected, $result);
     }
 
@@ -31,6 +31,7 @@ class ConverterTest extends TestCase
         $expected = '| foo | bar |';
         $result = $this->Converter->formatLine(
             ['foo', 'bar'],
+            false,
             false,
             0
         );
@@ -42,6 +43,7 @@ class ConverterTest extends TestCase
         $expected = '|_. foo |_. bar |';
         $result = $this->Converter->formatLine(
             ['foo', 'bar'],
+            false,
             true,
             0
         );
@@ -54,7 +56,20 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo', 'bar', 'test'],
             false,
+            false,
             1
+        );
+        $this->assertSame($expected, $result);
+    }
+
+    public function testFormatLineTrimValue()
+    {
+        $expected = '|_. foo |_. bar |_. baz |';
+        $result = $this->Converter->formatLine(
+            ['foo    ', '    bar', '   baz    '],
+            true,
+            true,
+            0
         );
         $this->assertSame($expected, $result);
     }
