@@ -43,7 +43,8 @@ class CsvToTextileCommand extends Command
             ->addOption('csvDelimiter', 'd', InputOption::VALUE_OPTIONAL, 'Values delimiter.', ',')
             ->addOption('csvEnclosure', 'c', InputOption::VALUE_OPTIONAL, 'Values delimiter.', '"')
             ->addOption('csvEscape', 'e', InputOption::VALUE_OPTIONAL, 'Values delimiter.', '\\')
-            ->addOption('trim', 't', InputOption::VALUE_NONE, 'Trim spaces');
+            ->addOption('trim', 't', InputOption::VALUE_NONE, 'Trim spaces')
+            ->addOption('align', 'a', InputOption::VALUE_NONE, 'Align columns.');
     }
 
     /**
