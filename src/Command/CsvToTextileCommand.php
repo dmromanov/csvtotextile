@@ -88,12 +88,24 @@ class CsvToTextileCommand extends Command
                 $input->getOption('csvEscape')
             );
 
+            $widths = [];
+            if ($input->getOption('align')) {
+                $rows = [];
+                foreach ($file as $row) {
+                    $rows[] = $row;
+                }
+                $widths = $formatter->calculateWidths($rows);
+                var_dump($widths);
+                $file->seek(0);
+            }
+
             foreach ($file as $lineNo => $line) {
                 $outputStream->writeln($formatter->formatLine(
                     $line,
                     $trim,
                     $lineNo < $headerRows,
-                    $headerCols
+                    $headerCols,
+                    $widths
                 ));
             }
 
