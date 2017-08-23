@@ -73,4 +73,28 @@ class ConverterTest extends TestCase
         );
         $this->assertSame($expected, $result);
     }
+
+    public function testFormatAligned()
+    {
+        $expected = '|_. foo |_. bar |_. baz |';
+        $result = $this->Converter->formatLine(
+            ['foo    ', '    bar', '   baz    '],
+            true,
+            true,
+            0
+        );
+        $this->assertSame($expected, $result);
+    }
+
+    public function testCalculateWidths()
+    {
+        $rows = [
+            ['foo    ', 'bar'],
+            ['foo', 'bar'],
+        ];
+
+        $expected = [7, 3];
+        $result = $this->Converter->calculateWidths($rows);
+        $this->assertSame($expected, $result);
+    }
 }

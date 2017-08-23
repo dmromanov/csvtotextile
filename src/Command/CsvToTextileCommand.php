@@ -43,7 +43,8 @@ class CsvToTextileCommand extends Command
             ->addOption('csvDelimiter', 'd', InputOption::VALUE_OPTIONAL, 'Values delimiter.', ',')
             ->addOption('csvEnclosure', 'c', InputOption::VALUE_OPTIONAL, 'Values delimiter.', '"')
             ->addOption('csvEscape', 'e', InputOption::VALUE_OPTIONAL, 'Values delimiter.', '\\')
-            ->addOption('trim', 't', InputOption::VALUE_NONE, 'Trim spaces.');
+            ->addOption('trim', 't', InputOption::VALUE_NONE, 'Trim spaces.')
+            ->addOption('align', 'a', InputOption::VALUE_NONE, 'Align columns.');
     }
 
     /**
@@ -87,12 +88,28 @@ class CsvToTextileCommand extends Command
                 $input->getOption('csvEscape')
             );
 
+            $widths = [];
+            if ($input->getOption('align')) {
+                $rows = [];
+                foreach ($file as $row) {
+                    if ($trim) {
+                        $row = array_map(function ($col) {
+                            return trim($col);
+                        }, $row);
+                    }
+                    $rows[] = $row;
+                }
+                $widths = $formatter->calculateWidths($rows);
+                $file->seek(0);
+            }
+
             foreach ($file as $lineNo => $line) {
                 $outputStream->writeln($formatter->formatLine(
                     $line,
                     $trim,
                     $lineNo < $headerRows,
-                    $headerCols
+                    $headerCols,
+                    $widths
                 ));
             }
 
