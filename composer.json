@@ -5,6 +5,7 @@
     "license": "GPL-3.0",
     "require": {
         "php": ">= 7.0.6",
+        "ext-mbstring": "*",
         "symfony/console": "^3.3"
     },
     "require-dev": {
