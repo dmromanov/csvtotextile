@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5bed2fbfa1beca29483b5f27c214523",
+    "content-hash": "963da58e7107768b8d37f63fe82e73bf",
     "packages": [
         {
             "name": "psr/log",
@@ -725,12 +725,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phingofficial/phing.git",
-                "reference": "ac3cc900a34fd0a2647850f367268687135b030b"
+                "reference": "ec861749bc9ef800236e188b60f83dc5b52e2b2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phingofficial/phing/zipball/ac3cc900a34fd0a2647850f367268687135b030b",
-                "reference": "ac3cc900a34fd0a2647850f367268687135b030b",
+                "url": "https://api.github.com/repos/phingofficial/phing/zipball/ec861749bc9ef800236e188b60f83dc5b52e2b2b",
+                "reference": "ec861749bc9ef800236e188b60f83dc5b52e2b2b",
                 "shasum": ""
             },
             "require": {
@@ -811,7 +811,7 @@
                 "task",
                 "tool"
             ],
-            "time": "2017-07-25T19:53:28+00:00"
+            "time": "2017-08-17T14:18:31+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1225,16 +1225,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/9a02332089ac48e704c70f6cefed30c224e3c0b0",
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0",
                 "shasum": ""
             },
             "require": {
@@ -1270,7 +1270,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:17:41+00:00"
+            "time": "2017-08-20T05:47:52+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -3071,7 +3071,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">= 7.0.6"
+        "php": ">= 7.0.6",
+        "ext-mbstring": "*"
     },
     "platform-dev": [],
     "platform-overrides": {
