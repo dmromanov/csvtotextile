@@ -92,14 +92,9 @@ class CsvToTextileCommand extends Command
             if ($input->getOption('align')) {
                 $rows = [];
                 foreach ($file as $row) {
-                    if ($trim) {
-                        $row = array_map(function ($col) {
-                            return trim($col);
-                        }, $row);
-                    }
                     $rows[] = $row;
                 }
-                $widths = $formatter->calculateWidths($rows);
+                $widths = $formatter->calculateWidths($rows, $trim);
                 $file->seek(0);
             }
 

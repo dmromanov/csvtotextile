@@ -78,13 +78,18 @@ class Converter
      * Calculate the column widths
      *
      * @param array $rows The rows on which the columns width will be calculated on.
+     * @param bool $trim
+     *
      * @return array
      */
-    public function calculateWidths($rows)
+    public function calculateWidths(array $rows, bool $trim)
     {
         $widths = [];
         foreach ($rows as $key => $line) {
             foreach (array_values($line) as $k => $v) {
+                if ($trim) {
+                    $v = trim($v);
+                }
                 $columnLength = mb_strwidth($v);
                 if ($columnLength >= (isset($widths[$k]) ? $widths[$k] : 0)) {
                     $widths[$k] = $columnLength;
