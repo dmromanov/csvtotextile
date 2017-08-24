@@ -78,14 +78,14 @@ class CsvToTextileCommand extends Command
 
         $headerRows = $input->getArgument('headerRows');
         $headerCols = $input->getArgument('headerCols');
-        $trim = $input->getOption('trim');
 
         try {
             $file = new CsvReader(
                 $input->getArgument('input'),
                 $input->getOption('csvDelimiter'),
                 $input->getOption('csvEnclosure'),
-                $input->getOption('csvEscape')
+                $input->getOption('csvEscape'),
+                $input->getOption('trim')
             );
 
             $widths = [];
@@ -94,14 +94,13 @@ class CsvToTextileCommand extends Command
                 foreach ($file as $row) {
                     $rows[] = $row;
                 }
-                $widths = $formatter->calculateWidths($rows, $trim);
+                $widths = $formatter->calculateWidths($rows);
                 $file->seek(0);
             }
 
             foreach ($file as $lineNo => $line) {
                 $outputStream->writeln($formatter->formatLine(
                     $line,
-                    $trim,
                     $lineNo < $headerRows,
                     $headerCols,
                     $widths

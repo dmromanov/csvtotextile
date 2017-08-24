@@ -22,7 +22,7 @@ class ConverterTest extends TestCase
     public function testFormatLineBlank()
     {
         $expected = '';
-        $result = $this->Converter->formatLine([], false, false, 0);
+        $result = $this->Converter->formatLine([], false, false);
         $this->assertSame($expected, $result);
     }
 
@@ -32,8 +32,7 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo', 'bar'],
             false,
-            false,
-            0
+            false
         );
         $this->assertSame($expected, $result);
     }
@@ -44,8 +43,7 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo', 'bar'],
             false,
-            true,
-            0
+            true
         );
         $this->assertSame($expected, $result);
     }
@@ -56,8 +54,7 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo', 'bar', 'test'],
             false,
-            false,
-            1
+            false
         );
         $this->assertSame($expected, $result);
     }
@@ -68,8 +65,7 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo    ', '    bar', '   baz    '],
             true,
-            true,
-            0
+            true
         );
         $this->assertSame($expected, $result);
     }
@@ -80,8 +76,7 @@ class ConverterTest extends TestCase
         $result = $this->Converter->formatLine(
             ['foo    ', '    bar', '   baz    '],
             true,
-            true,
-            0
+            true
         );
         $this->assertSame($expected, $result);
     }
@@ -89,11 +84,11 @@ class ConverterTest extends TestCase
     public function testCalculateWidths()
     {
         $rows = [
-            ['foo    ', 'bar'],
             ['foo', 'bar'],
+            ['foo    ', 'bar '],
         ];
 
-        $expected = [7, 3];
+        $expected = [7, 4];
         $result = $this->Converter->calculateWidths($rows);
         $this->assertSame($expected, $result);
     }

@@ -22,7 +22,8 @@ class CsvReaderTest extends TestCase
             'php://memory',
             '1',
             '2',
-            '3'
+            '3',
+            false
         );
 
         $expected = SplFileObject::READ_CSV | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY | SplFileObject::DROP_NEW_LINE;
@@ -32,6 +33,7 @@ class CsvReaderTest extends TestCase
 
     /**
      * Test Constructor
+     *
      * @requires PHP 7.1-dev
      */
     public function testConstructorCsvControls()
@@ -41,12 +43,21 @@ class CsvReaderTest extends TestCase
             'php://memory',
             '1',
             '2',
-            '3'
+            '3',
+            false
         );
 
         $expected = ['1', '2', '3'];
         $result = $csv->getCsvControl();
         $this->assertSame($expected, $result);
+    }
+
+    /**
+     * Test Constructor With Trim
+     */
+    public function testConstructorWithtrim()
+    {
+        $this->markTestIncomplete();
     }
 
 }
