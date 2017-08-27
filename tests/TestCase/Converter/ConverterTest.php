@@ -13,12 +13,18 @@ use PHPUnit\Framework\TestCase;
  */
 class ConverterTest extends TestCase
 {
+    /**
+     * Set Up method
+     */
     protected function setUp()
     {
         parent::setUp();
         $this->Converter = new Converter();
     }
 
+    /**
+     * Test formatLine method with an empty string argument
+     */
     public function testFormatLineBlank()
     {
         $expected = '';
@@ -26,6 +32,9 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Test formatLine method
+     */
     public function testFormatLine()
     {
         $expected = '| foo | bar |';
@@ -37,6 +46,9 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Test formatLine as a header row
+     */
     public function testFormatLineHeaderRow()
     {
         $expected = '|_. foo |_. bar |';
@@ -48,6 +60,9 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Test formatLine with header columns
+     */
     public function testFormatLineHeaderCols()
     {
         $expected = '|_. foo | bar | test |';
@@ -59,6 +74,9 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Test formatLine with a value trimming
+     */
     public function testFormatLineTrimValue()
     {
         $expected = '|_. foo |_. bar |_. baz |';
@@ -70,7 +88,10 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    public function testFormatAligned()
+    /**
+     * Test formatLine aligned
+     */
+    public function testFormatLineAligned()
     {
         $expected = '|_. foo |_. bar |_. baz |';
         $result = $this->Converter->formatLine(
@@ -81,6 +102,9 @@ class ConverterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * Test calculateWidths method
+     */
     public function testCalculateWidths()
     {
         $rows = [
