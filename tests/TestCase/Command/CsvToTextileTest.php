@@ -17,9 +17,9 @@ class CsvToTextileTest extends KernelTestCase
 {
     protected $tmpFile;
 
-    public function setUp()
+    public function setUp(): void
     {
-        register_shutdown_function(function () {
+        register_shutdown_function(function (): void {
             if (file_exists($this->tmpFile)) {
                 unlink($this->tmpFile);
             }

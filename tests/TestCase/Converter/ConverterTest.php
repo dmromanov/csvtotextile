@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ConverterTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->Converter = new Converter();

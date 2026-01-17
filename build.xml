@@ -6,7 +6,11 @@
 
     <autoloader autoloaderpath="vendor/autoload.php"/>
 
-    <exec command="git describe --tags --always" outputProperty="version" checkreturn="true"/>
+    <exec executable="git" outputProperty="version" checkreturn="true">
+        <arg value="describe"></arg>
+        <arg value="--tags"></arg>
+        <arg value="--always"></arg>
+    </exec>
     <property name="version" value="v${version}" override="true"/>
     <echo>Building a ${version}</echo>
 
@@ -59,7 +63,7 @@
         <echo>Ok.</echo>
     </target>
 
-    <target name="composer-validate" description="Run unit-testing suite">
+    <target name="composer-validate" description="Validate Composer configuration">
         <exec executable="composer" checkreturn="true">
             <arg value="validate"/>
         </exec>
@@ -72,6 +76,7 @@
         <pharpackage
             destfile="${dstfile}"
             basedir="./build/build"
+            compression="gzip"
             clistub="./build/build/bin/csvtotextile.php"
             signature="sha512"
         >

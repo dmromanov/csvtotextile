@@ -21,7 +21,7 @@ class ConsoleStreamTest extends TestCase
     /**
      * Set Up
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->output = new BufferedOutput();

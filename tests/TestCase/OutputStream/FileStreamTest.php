@@ -21,14 +21,12 @@ class FileStreamTest extends TestCase
     /**
      * Set Up
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->fileMock = $this->getMockBuilder(SplFileObject::class)
             ->enableOriginalConstructor()
             ->disableOriginalClone()
-            ->disableArgumentCloning()
-            ->disallowMockingUnknownTypes()
             ->setConstructorArgs(['php://memory'])
             ->getMock();
 

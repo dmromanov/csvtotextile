@@ -83,7 +83,7 @@ class Converter
     public function calculateWidths($rows)
     {
         $widths = [];
-        foreach ($rows as $key => $line) {
+        foreach ($rows as $line) {
             foreach (array_values($line) as $k => $v) {
                 $columnLength = mb_strwidth($v);
                 if ($columnLength >= (isset($widths[$k]) ? $widths[$k] : 0)) {
